@@ -1,0 +1,21 @@
+{
+  "name": "express-redis-cache-demo",
+  "version": "1.0.0",
+  "description": "Demo of Express 5 with Redis caching",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.0.1",
+    "redis": "^4.7.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
