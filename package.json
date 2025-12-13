@@ -1,21 +1,29 @@
 {
-  "name": "express-redis-cache-demo",
-  "version": "1.0.0",
-  "description": "Demo of Express 5 with Redis caching",
-  "main": "src/app.js",
-  "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^5.0.1",
-    "redis": "^4.7.0",
-    "dotenv": "^16.4.5"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.7"
-  }
+    "name": "express-redis-cache-demo",
+    "type": "module",
+    "version": "1.0.0",
+    "description": "Demo of Express 5 with Redis caching",
+    "main": "src/app.js",
+    "scripts": {
+        "start": "node src/app.js",
+        "dev": "nodemon src/app.js",
+        "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "express": "^5.0.1",
+        "mysql2": "^3.15.3",
+        "redis": "^4.7.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.39.2",
+        "eslint": "^9.39.2",
+        "globals": "^16.5.0",
+        "jest": "^30.2.0",
+        "nodemon": "^3.1.7",
+        "supertest": "^7.1.4"
+    }
 }

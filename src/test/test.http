@@ -1,5 +1,35 @@
+@baseUrl = http://localhost:3000
 ### load data
-GET http://localhost:3000/no-cache
+GET {{baseUrl}}/no-cache
 
 ### load data with cache
-GET http://localhost:3000/with-cache
+GET {{baseUrl}}/with-cache
+
+
+### create user
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john.doe@example.com"
+}
+
+### get all user
+GET {{baseUrl}}/users
+
+### get user by id
+GET {{baseUrl}}/users/13
+
+### update user
+PUT {{baseUrl}}/users/13
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john.doe@example.com"
+}
+
+### delete user
+DELETE {{baseUrl}}/users/1
+

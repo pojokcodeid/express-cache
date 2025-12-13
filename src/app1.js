@@ -1,12 +1,27 @@
 import express from 'express';
-import client from './config/redis.js';
-import userRoutes from './routes/userRoutes.js';
+import { createClient } from 'redis';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Initialize Redis Client
+const client = createClient({
+    url: process.env.REDIS_URL || 'redis://localhost:6379'
+});
+
+client.on('error', (err) => console.log('Redis Client Error', err));
+
+// Connect to Redis
+(async () => {
+    try {
+        await client.connect();
+        console.log('Connected to Redis');
+    } catch (err) {
+        console.error('Failed to connect to Redis:', err.message);
+    }
+})();
+
 app.use(express.json());
-app.use('/users', userRoutes);
 
 // Helper function to simulate a slow database call
 const getMockData = () => {
@@ -54,12 +69,6 @@ app.get('/with-cache', async (req, res) => {
     }
 });
 
-// Export app for testing
-export default app;
-
-// Only start server if not testing
-if (process.env.NODE_ENV !== 'test') {
-    app.listen(port, () => {
-        console.log(`Server running on http://localhost:${port}`);
-    });
-}
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+});
